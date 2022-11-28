@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Nov-2022 às 03:05
+-- Tempo de geração: 28-Nov-2022 às 07:29
 -- Versão do servidor: 10.4.25-MariaDB
 -- versão do PHP: 8.1.10
 
@@ -30,21 +30,21 @@ SET time_zone = "+00:00";
 CREATE TABLE `objetos` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
+  `id_cadastrador` bigint(250) NOT NULL,
+  `nome_cadastrador` varchar(500) NOT NULL,
+  `id_emprestador` int(11) NOT NULL,
+  `emprestador` varchar(500) NOT NULL,
   `localiza` varchar(100) NOT NULL,
-  `categoria` varchar(10) NOT NULL
+  `categoria` varchar(10) NOT NULL,
+  `identificador` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `objetos`
 --
 
-INSERT INTO `objetos` (`id`, `nome`, `localiza`, `categoria`) VALUES
-(10, 'Estilete', 'Joinville, SC', 'Manual'),
-(11, 'Furadeira', 'Curitiba, PR', 'Eletro'),
-(12, 'Caneta multicolorida', 'Blumenau, SC', 'Manual'),
-(19, 'Chave de roda', 'Jaraguá do Sul, SC', 'Manual'),
-(20, 'Ralador', 'Maringá, SP', 'Manual'),
-(21, 'Capacete para soldador', 'Curitiba, PR', 'Eletro');
+INSERT INTO `objetos` (`id`, `nome`, `id_cadastrador`, `nome_cadastrador`, `id_emprestador`, `emprestador`, `localiza`, `categoria`, `identificador`) VALUES
+(27, 'vina', 13, 'larissa', 14, 'lariii', 'aqui', 'Eletro', 1);
 
 -- --------------------------------------------------------
 
@@ -68,7 +68,11 @@ INSERT INTO `usuarios` (`id`, `nome`, `apelido`, `senha`) VALUES
 (8, 'Carlos Roberto', 'Carlo2', '123456'),
 (10, 'Marcos Felipe dos Santos', 'Marcao1998', 'abc'),
 (11, 'Aline Silveira', 'Alineee', 'as'),
-(12, 'Julia Alcântara da Luz', 'Chocolatose', 'sdfs');
+(12, 'Julia Alcântara da Luz', 'Chocolatose', 'sdfs'),
+(13, 'larissa', 'laris', 'la'),
+(14, 'lariii', 'lari', 'la'),
+(15, 'lari', 'lari', 'la'),
+(16, 'asdf', 'asdf', 'asdf');
 
 --
 -- Índices para tabelas despejadas
@@ -94,13 +98,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `objetos`
 --
 ALTER TABLE `objetos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
